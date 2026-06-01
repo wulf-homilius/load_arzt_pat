@@ -1,0 +1,16 @@
+# config.yaml
+server: "http://194.163.128.215:7030"
+username: "arzt1"
+password: "Password123!"
+
+# Entweder encounter_id ODER patient_id angeben (nicht beide):
+#encounter_id: "12345"
+patient_id: "3ec1c19b-e612-495a-8c90-8d907937bdb8"
+
+# -------------------------------------------------------
+# Neuer Patient (Upload)
+# -------------------------------------------------------
+new_patient:
+  patient_id: ""        # leer lassen → wird automatisch als UUID generiert
+  family: "Lüder"
+  given: "Carmen" 

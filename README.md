@@ -27,3 +27,10 @@ Aktiviere die Ausführung:
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 Führe das Skript aus:
 .\run-extract.ps1
+
+del_patient: DELETE /Patient/90b71222-...?_cascade=delete
+ bei fehlermeldung:
+ # Pseudocode: ERR-Zeilen aus Log extrahieren und retry
+$errors = $log | Where-Object { $_ -match "ERR" } | 
+          ForEach-Object { ($_ -split " ")[2] }  # ResourceType/ID extrahieren
+$errors | ForEach-Object { Invoke-RestMethod -Method DELETE -Uri "$fhirBase/$_" }

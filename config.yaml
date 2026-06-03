@@ -5,12 +5,12 @@ password: "Password123!"
 
 # Entweder encounter_id ODER patient_id angeben (nicht beide):
 #encounter_id: "12345"
-patient_id: "3ec1c19b-e612-495a-8c90-8d907937bdb8"
+patient_id: "26f60f78-7309-45f6-ace4-5d5481c17d1e"
 
 # -------------------------------------------------------
 # Neuer Patient (Upload)
 # -------------------------------------------------------
 new_patient:
   patient_id: ""        # leer lassen → wird automatisch als UUID generiert
-  family: "Lüder"
-  given: "Carmen" 
+  family: "Aragon"
+  given: "Lydia" 

@@ -142,7 +142,32 @@ for pat in patients:
                 total_err += 1
 
     print(f"  → {pat_ok} gelöscht  |  {pat_err} Fehler\n")
+# -------------------------------------------------------
+# Retry: fehlgeschlagene Ressourcen nochmals löschen
+# -------------------------------------------------------
+RETRY_RESOURCES = [
+    ("CarePlan",            "ddcbf611-1da2-d05d-a56c-1f05d864af5a"),
+    ("CarePlan",            "a457c53a-7d72-21d1-9291-cf86a0bac62c"),
+    ("Condition",           "a735d3b6-6f7c-23b8-0516-fb32c37a8dc8"),
+    ("Condition",           "740830ff-fb56-2700-3aa7-596a51cad8e2"),
+    ("Condition",           "50935215-d8b7-589d-7694-6785ecd3e680"),
+    ("QuestionnaireResponse","9e507822-9e59-9cc4-1234-c36c2cfff489"),
+    ("Encounter",           "b6b26d9e-a45f-4aa4-9202-36c786bc1a36"),
+    ("Patient",             "90b71222-186e-45e6-bf1e-afd643f2f70b"),
+]
 
+print("\n" + "=" * 70)
+print("  Retry fehlgeschlagener Ressourcen")
+print("=" * 70)
+
+for resource_type, resource_id in RETRY_RESOURCES:
+    ok = delete_resource(resource_type, resource_id)
+    if ok:
+        print(f"  DEL  {resource_type:<26} {resource_id}")
+        total_ok += 1
+    else:
+        total_err += 1
 print("=" * 70)
 print(f"  Gesamt: {total_ok} gelöscht  |  {total_err} Fehler")
+
 print("=" * 70)

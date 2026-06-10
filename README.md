@@ -34,3 +34,9 @@ del_patient: DELETE /Patient/90b71222-...?_cascade=delete
 $errors = $log | Where-Object { $_ -match "ERR" } | 
           ForEach-Object { ($_ -split " ")[2] }  # ResourceType/ID extrahieren
 $errors | ForEach-Object { Invoke-RestMethod -Method DELETE -Uri "$fhirBase/$_" }
+idna- sprachen
+core sprachen
+normalizer matched
+intranges komprimiert zahlenreihen
+uts46 schrift
+compat sprache
